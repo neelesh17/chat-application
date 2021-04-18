@@ -2,6 +2,7 @@ import React from 'react';
 import MessageForm from '../messageFrom';
 import MyMessage from '../myMessage';
 import TheirMessage from '../theirMessage';
+import { LoginOutlined } from '@ant-design/icons';
 
 const ChatFeed = (props) => {
     const { chats, activeChat, userName, messages } = props;
@@ -48,9 +49,10 @@ const ChatFeed = (props) => {
             <div className="chat-title-container">
                 <div className="chat-title">
                     {chat.title}
+                    <LoginOutlined style={{float: 'right'}} onClick={() => {localStorage.removeItem("username");localStorage.removeItem("password"); window.location.reload()} }/>
                 </div>
                 <div className="chat-subtitle">
-                    {chat.people.map((person) => `${person.person.username}`)}
+                    {chat.people.map((person) => `${person.person.username} `)}
                 </div>
             </div>
             {renderMessages()}
