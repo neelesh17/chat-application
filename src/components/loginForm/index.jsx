@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const projectID = '1b7801d6-8a66-4be4-a442-89219d833dfc';
+const projectID = '9867d452-2cb9-4d8b-b3cf-b073ce12bcea';
 
 const LoginModal = () => {
   const [username, setUsername] = useState('');
@@ -10,7 +10,6 @@ const LoginModal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const authObject = { 'Project-ID': projectID, 'User-Name': username, 'User-Secret': password };
 
     try {
@@ -22,6 +21,7 @@ const LoginModal = () => {
       window.location.reload();
       setError('');
     } catch (err) {
+      console.log(err)
       setError('Oops, incorrect credentials.');
     }
   };
